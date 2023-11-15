@@ -6,8 +6,8 @@ import { HomeComponent } from './home.component';
 import { LazyContentComponent } from './lazy-content/lazy-content.component';
 import { LazyWrapperComponent } from './lazy-wrapper/lazy-wrapper.component';
 import { Lazy1ContentComponent } from './lazy1-content/lazy1-content.component';
-import { OriginalComponent } from './simple/original-component';
-import { PageComponent } from './simple/page-component';
+import { Home1Component } from './home1.component';
+import { LazyWrapperOldComponent } from './lazy-wrapper-old/lazy-wrapper-old.component';
 
 
 @NgModule({
@@ -17,8 +17,9 @@ import { PageComponent } from './simple/page-component';
     Lazy1ContentComponent,
     LazyWrapperComponent,
     HomeComponent,
-    OriginalComponent,
-    PageComponent
+    Home1Component,
+    LazyWrapperOldComponent,
+    LazyWrapperOldComponent
     
   ],
   imports: [

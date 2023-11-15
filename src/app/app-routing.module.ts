@@ -1,8 +1,7 @@
-import { animate, AnimationBuilder, query, stagger, style } from '@angular/animations';
-import { Component, ElementRef, NgModule, OnInit, ɵComponentType } from '@angular/core';
+import { NgModule} from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home.component';
-import { OriginalComponent } from './simple/original-component';
+import { Home1Component } from './home1.component';
 
 
 const routes: Routes = [
@@ -11,8 +10,8 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'simple',
-    component: OriginalComponent
+    path: 'old',
+    component: Home1Component
   }
 ];
 

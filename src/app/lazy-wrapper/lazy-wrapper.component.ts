@@ -1,4 +1,4 @@
-import { Attribute, Component, ComponentFactoryResolver, ViewChild, ViewContainerRef } from '@angular/core';
+import { Attribute, Component, ComponentFactoryResolver, Input, ViewChild, ViewContainerRef } from '@angular/core';
 
 @Component({
   selector: 'app-lazy-wrapper',
@@ -8,12 +8,14 @@ import { Attribute, Component, ComponentFactoryResolver, ViewChild, ViewContaine
 export class LazyWrapperComponent  {
   @ViewChild('lazyContent', { read: ViewContainerRef, static: true }) lazyContentContainer: ViewContainerRef
 
+  @Input() type: 'lazy' | 'lazy1'
 
-  constructor(@Attribute('type') private type: 'lazy' | 'lazy1', private cfr: ComponentFactoryResolver) {
+  constructor(private cfr: ComponentFactoryResolver) {
   }
 
   async ngOnInit() {
     const lazyContentComponent = await import(`../${this.type}-content/${this.type}-content.component`)
+    // console.log(lazyContentComponent['Lazy1ContentComponent'])
     const componentClassName = lazyContentComponent[`${this.capitalize(this.type)}ContentComponent`]
     const componentFactory = this.cfr.resolveComponentFactory(componentClassName)
     this.lazyContentContainer.createComponent(componentFactory)

@@ -1,15 +1,14 @@
 import { Component, Input } from '@angular/core';
-import { BaseContentComponent } from '../base-content.component';
 
 
-function ExtendComponent(config: { backgroundColor: string }) {
+function ExtendComponent() {
   return function <T extends { new(...args: any[]): {} }>(constructor: T) {
     return class extends constructor {
-      customBackgroundColor: string = config.backgroundColor;
+      // customBackgroundColor: string = config.backgroundColor;
 
       constructor(...args: any[]) {
         super(...args);
-        console.log(`Extended component created with background color: ${this.customBackgroundColor}`);
+        console.log(`Extended component created with background color: `);
       }
     };
   };
@@ -22,15 +21,12 @@ function ExtendComponent(config: { backgroundColor: string }) {
   styleUrls: ['./lazy-content.component.scss']
 })
 
-@ExtendComponent({ backgroundColor: 'lightblue' })
-export class LazyContentComponent extends BaseContentComponent {
+@ExtendComponent()
+export class LazyContentComponent {
 
   constructor() {
-    super()
+    
   }
 
-  onLazyWrapperClick() {
-    console.log('a click from wrapper invoked a method on lazy-content.component')
-  }
 
 }
